@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.1.0">
+	<projectReference>
+		<title>SixRealCars - Alternatives - Empty</title>
+		<comment>The alternatives from the "SixRealCars" data set, all inactive.</comment>
+	</projectReference>
+	<alternatives>
+		<alternative id="a01" name="Audi A3">
+			<active>false</active>
+		</alternative>
+		<alternative id="a02" name="Audi A4">
+			<active>false</active>
+		</alternative>
+		<alternative id="a03" name="BMW 118">
+			<active>false</active>
+		</alternative>
+		<alternative id="a04" name="BMW 320">
+			<active>false</active>
+		</alternative>
+		<alternative id="a05" name="Volvo C30">
+			<active>false</active>
+		</alternative>
+		<alternative id="a06" name="Volvo S40">
+			<active>false</active>
+		</alternative>
+	</alternatives>
+</xmcda:XMCDA>

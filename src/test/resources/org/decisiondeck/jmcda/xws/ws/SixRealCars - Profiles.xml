@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmcda:XMCDA xmlns:xmcda="http://www.decision-deck.org/2009/XMCDA-2.1.0">
+	<projectReference>
+		<title>SixRealCars - Profiles</title>
+		<comment>Only the profiles from the "SixRealCars" data set.</comment>
+	</projectReference>
+	<alternatives mcdaConcept="Fictive">
+		<alternative id="pBM" name="profile bad to medium" />
+		<alternative id="pMG" name="profile medium to good" />
+	</alternatives>
+</xmcda:XMCDA>
