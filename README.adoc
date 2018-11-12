@@ -1,0 +1,10 @@
+= J-MCDA xmcda2-ws-examples
+
+image:https://travis-ci.com/oliviercailloux/jmcda-xmcda2-ws-examples.svg?branch=master["Build Status", link="https://travis-ci.com/oliviercailloux/jmcda-xmcda2-ws-examples"]
+//image:https://maven-badges.herokuapp.com/maven-central/io.github.oliviercailloux/jmcda-xmcda2-ws-examples/badge.svg["Artifact on Maven Central", link="http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22io.github.oliviercailloux.jmcda%22%20a%3A%22xmcda2-ws-examples%22"]
+//image:http://www.javadoc.io/badge/io.github.oliviercailloux/jmcda-xmcda2-ws-examples.svg["Javadocs", link="http://www.javadoc.io/doc/io.github.oliviercailloux.jmcda/xmcda2-ws-examples"]
+
+J-MCDA xmcda2-ws-examples
+
+API is _not_ stable. Comments and bug reports are welcome.
+
