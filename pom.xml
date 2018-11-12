@@ -6,28 +6,28 @@
 		<artifactId>pom</artifactId>
 		<version>0.5.4-SNAPSHOT</version>
 	</parent>
-	<artifactId>jmcda-xmcda2-ws-examples</artifactId>
+	<artifactId>xmcda2-ws-examples</artifactId>
 	<name>XMCDA v2 Web services examples</name>
 	<description>Sample XMCDA v2 web services. Copy from those examples to provide your own XMCDA web services.</description>
 	<dependencies>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jmcda-base</artifactId>
+			<artifactId>base</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jmcda-services</artifactId>
+			<artifactId>services</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jmcda-xmcda2-parsing</artifactId>
+			<artifactId>xmcda2-parsing</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jmcda-xmcda2-ws</artifactId>
+			<artifactId>xmcda2-ws</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		
@@ -40,7 +40,7 @@
 
 		<dependency>
 			<groupId>${project.groupId}</groupId>
-			<artifactId>jmcda-xmcda2-samples</artifactId>
+			<artifactId>xmcda2-samples</artifactId>
 			<version>${project.version}</version>
 			<scope>test</scope>
 		</dependency>
