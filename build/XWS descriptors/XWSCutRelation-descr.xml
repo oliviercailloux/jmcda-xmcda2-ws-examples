@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<program_description>
+	<program name="cutRelation" provider="J-MCDA" version="${version}"
+		displayName="cutRelation" />
+	<documentation>
+		<description xml:space="preserve">Cuts a fuzzy relation (on alternatives) at a given threshold and produces a binary relation.</description>
+		<contact xml:space="preserve">Olivier Cailloux &lt;olivier.cailloux@ecp.fr></contact>
+		<url xml:space="preserve">http://sourceforge.net/projects/j-mcda/</url>
+		<reference xml:space="preserve">Cailloux, Olivier. Electre and Promethee MCDA methods as reusable software components. In Proceedings of the 25th Mini-EURO Conference on Uncertainty and Robustness in Planning and Decision Making (URPDM 2010). Coimbra, Portugal, 2010.</reference>
+	</documentation>
+	<parameters>
+		<input displayName="relation" name="relation" id="input0"
+			isoptional="0">
+			<documentation>
+				<description xml:space="preserve">The fuzzy relation to cut.</description>
+			</documentation>
+			<xmcda tag="alternativesComparisons" />
+		</input>
+		<input displayName="alternatives" name="alternatives" id="input1"
+			isoptional="1">
+			<documentation>
+				<description xml:space="preserve">The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.</description>
+			</documentation>
+			<xmcda tag="alternatives" />
+		</input>
+		<input displayName="cut_threshold" name="cut_threshold" id="input2"
+			isoptional="0">
+			<documentation>
+				<description xml:space="preserve">The threshold specifying where to cut the relation.</description>
+			</documentation>
+			<xmcda tag="methodParameters">
+<![CDATA[
+      <methodParameters>
+         <parameter>
+               <value>
+                  <real>%1</real>
+               </value>
+         </parameter>
+      </methodParameters>
+]]>
+			</xmcda>
+			<gui status="preferGUI">
+				<entry id="%1" type="float" displayName="cut_threshold">
+				</entry>
+			</gui>
+		</input>
+		<output displayName="binary_relation" name="binary_relation"
+			id="output0">
+			<documentation>
+				<description xml:space="preserve">The binary relation resulting from the cut.</description>
+			</documentation>
+			<xmcda tag="alternativesComparisons" />
+		</output>
+		<output displayName="messages" name="messages" id="output1">
+			<documentation>
+				<description xml:space="preserve">A status message.</description>
+			</documentation>
+			<xmcda tag="methodMessages" />
+		</output>
+	</parameters>
+</program_description>

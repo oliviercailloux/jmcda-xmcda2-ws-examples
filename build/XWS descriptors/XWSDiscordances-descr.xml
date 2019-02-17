@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<program_description>
+	<program name="ElectreDiscordances" provider="J-MCDA" version="${version}"
+		displayName="ElectreDiscordances" />
+	<documentation>
+		<description xml:space="preserve">Computes a discordance relation per criteria.</description>
+		<contact xml:space="preserve">Olivier Cailloux &lt;olivier.cailloux@ecp.fr></contact>
+		<url xml:space="preserve">http://sourceforge.net/projects/j-mcda/</url>
+		<reference xml:space="preserve">Cailloux, Olivier. Electre and Promethee MCDA methods as reusable software components. In Proceedings of the 25th Mini-EURO Conference on Uncertainty and Robustness in Planning and Decision Making (URPDM 2010). Coimbra, Portugal, 2010.</reference>
+	</documentation>
+	<parameters>
+		<input displayName="alternatives" name="alternatives" id="input0"
+			isoptional="1">
+			<documentation>
+				<description xml:space="preserve">The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.</description>
+			</documentation>
+			<xmcda tag="alternatives" />
+		</input>
+		<input displayName="criteria" name="criteria" id="input1"
+			isoptional="0">
+			<documentation>
+				<description xml:space="preserve">The criteria to consider, possibly with preference and veto thresholds. Each one must have a preference direction. Set some criteria as inactive (or remove them) to ignore them.</description>
+			</documentation>
+			<xmcda tag="criteria" />
+		</input>
+		<input displayName="performances" name="performances" id="input2"
+			isoptional="0">
+			<documentation>
+				<description xml:space="preserve">The performances of the alternatives on the criteria to consider.</description>
+			</documentation>
+			<xmcda tag="performanceTable" />
+		</input>
+		<output displayName="discordances" name="discordances" id="output0">
+			<documentation>
+				<description xml:space="preserve">The discordances relations (one relation per criterion) computed from the given input data.</description>
+			</documentation>
+			<xmcda tag="alternativesComparisons" />
+		</output>
+		<output displayName="messages" name="messages" id="output1">
+			<documentation>
+				<description xml:space="preserve">A status message.</description>
+			</documentation>
+			<xmcda tag="methodMessages" />
+		</output>
+	</parameters>
+</program_description>
