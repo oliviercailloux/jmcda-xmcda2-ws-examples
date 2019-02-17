@@ -233,7 +233,7 @@ public class XWSServicesTest {
 
 		exec.setWorker(XWSCsvImport.class);
 		exec.setOutputDirectory(new File("out"));
-		exec.setWriteEnabled(true);
+		exec.setWriteEnabled(false);
 		exec.execute();
 
 		final XWSCsvImport worker = (XWSCsvImport) exec.getWorker();
@@ -272,7 +272,7 @@ public class XWSServicesTest {
 
 		exec.setWorker(XWSCsvImport.class);
 		exec.setOutputDirectory(new File("out"));
-		exec.setWriteEnabled(true);
+		exec.setWriteEnabled(false);
 		exec.execute();
 
 		final XWSCsvImport worker = (XWSCsvImport) exec.getWorker();
@@ -433,9 +433,8 @@ public class XWSServicesTest {
 
 	/**
 	 * Filtered, but the filter has no effect as it contains all alternatives.
-	 * 
-	 * @throws Exception
-	 *             exc
+	 *
+	 * @throws Exception exc
 	 */
 	@Test
 	public void testWSFlowsFilteredNotReally() throws Exception {
@@ -651,7 +650,7 @@ public class XWSServicesTest {
 
 		exec.setWorker(XWSSorting.class);
 		exec.setOutputDirectory(new File("out"));
-		exec.setWriteEnabled(true);
+		exec.setWriteEnabled(false);
 		exec.execute();
 
 		final XWSSorting worker = (XWSSorting) exec.getWorker();
