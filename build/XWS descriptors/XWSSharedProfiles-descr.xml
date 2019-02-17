@@ -1,55 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<program_description>
+<program_description
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://www.decision-deck.org/ws/_downloads/description.xsd">
 	<program name="ElectreTri1GroupDisaggregationSharedProfiles"
 		provider="J-MCDA" version="${releaseNumber}"
 		displayName="ElectreTri1GroupDisaggregationSharedProfiles" />
 	<documentation>
-		<description xml:space="preserve">Finds electre tri like models with shared profiles and individual weights that matches given group assignments.</description>
-		<contact xml:space="preserve">Olivier Cailloux &lt;olivier.cailloux@ecp.fr></contact>
-		<url xml:space="preserve">http://sourceforge.net/projects/j-mcda/</url>
-		<reference xml:space="preserve">Cailloux, O., Meyer, P. &amp; Mousseau, V., 2012. Eliciting ELECTRE TRI category limits for a group of decision makers. European Journal of Operational Research. Available at: http://www.sciencedirect.com/science/article/pii/S0377221712003906?v=s5.</reference>
+		<description>Finds electre tri like models with shared profiles and individual weights that matches given group assignments.</description>
+		<contact>Olivier Cailloux &lt;olivier.cailloux@dauphine.fr></contact>
+		<url>https://github.com/oliviercailloux/jmcda-xmcda2-ws-examples</url>
+		<reference>Cailloux, O., Meyer, P. &amp; Mousseau, V., 2012. Eliciting ELECTRE TRI category limits for a group of decision makers. European Journal of Operational Research. Available at: http://www.sciencedirect.com/science/article/pii/S0377221712003906?v=s5.</reference>
 	</documentation>
 	<parameters>
-		<input displayName="alternatives" name="alternatives" id="alternatives"
-			isoptional="1">
+		<input displayName="alternatives" name="alternatives"
+			id="alternatives" isoptional="1">
 			<documentation>
-				<description xml:space="preserve">The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.</description>
+				<description>The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.</description>
 			</documentation>
 			<xmcda tag="alternatives" />
 		</input>
 		<input displayName="criteria" name="criteria" id="criteria"
 			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The criteria to consider. Each one must have a preference direction. No preference or indifference thresholds may be included. Set some criteria as inactive (or remove them) to ignore them. Veto thresholds may be included: these will be considered as constraints on the preference model.
+				<description>The criteria to consider. Each one must have a preference direction. No preference or indifference thresholds may be included. Set some criteria as inactive (or remove them) to ignore them. Veto thresholds may be included: these will be considered as constraints on the preference model.
 				</description>
 			</documentation>
 			<xmcda tag="criteria" />
 		</input>
-		<input displayName="categories_profiles" name="categories_profiles"
-			id="categories_profiles" isoptional="0">
+		<input displayName="categories_profiles"
+			name="categories_profiles" id="categories_profiles" isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The profiles and the categories names in which alternatives are to be sorted.</description>
+				<description>The profiles and the categories names in which alternatives are to be sorted.</description>
 			</documentation>
 			<xmcda tag="categoriesProfiles" />
 		</input>
-		<input displayName="alternatives performances" name="performances_alternatives"
-			id="performances_alternatives" isoptional="0">
+		<input displayName="alternatives performances"
+			name="performances_alternatives" id="performances_alternatives"
+			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The performances of the example alternatives.</description>
+				<description>The performances of the example alternatives.</description>
 			</documentation>
 			<xmcda tag="performanceTable" />
 		</input>
 		<input displayName="group example assignments" name="examples"
 			id="examples" isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The example assignments. Use one tag per decision maker. Use the name attribute to indicate the corresponding decision maker.</description>
+				<description>The example assignments. Use one tag per decision maker. Use the name attribute to indicate the corresponding decision maker.</description>
 			</documentation>
 			<xmcda tag="alternativesAffectations" />
 		</input>
-		<input displayName="use vetoes" name="use_vetoes" id="use_vetoes"
-			isoptional="1">
+		<input displayName="use vetoes" name="use_vetoes"
+			id="use_vetoes" isoptional="1">
 			<documentation>
-				<description xml:space="preserve">Whether to accept using veto thresholds in the resulting preference model. Must be true when veto threshold values are set as input.</description>
+				<description>Whether to accept using veto thresholds in the resulting preference model. Must be true when veto threshold values are set as input.</description>
 			</documentation>
 			<xmcda tag="methodParameters">
 <![CDATA[
@@ -67,17 +70,17 @@
 				</entry>
 			</gui>
 		</input>
-		<input displayName="set profiles" name="set_profiles" id="set_profiles"
-			isoptional="1">
+		<input displayName="set profiles" name="set_profiles"
+			id="set_profiles" isoptional="1">
 			<documentation>
-				<description xml:space="preserve">Some performances for the profiles of the resulting model may be constrained here. The values will not necessarily be considered as is but the resulting model will satisfy the ordering implied by the constraints.</description>
+				<description>Some performances for the profiles of the resulting model may be constrained here. The values will not necessarily be considered as is but the resulting model will satisfy the ordering implied by the constraints.</description>
 			</documentation>
 			<xmcda tag="performanceTable" />
 		</input>
-		<input displayName="minimum weights" name="min_weights" id="min_weights"
-			isoptional="1">
+		<input displayName="minimum weights" name="min_weights"
+			id="min_weights" isoptional="1">
 			<documentation>
-				<description xml:space="preserve">The minimum value accepted for a weight. Default is zero.</description>
+				<description>The minimum value accepted for a weight. Default is zero.</description>
 			</documentation>
 			<xmcda tag="methodParameters">
 <![CDATA[
@@ -97,35 +100,36 @@
 		</input>
 		<output displayName="messages" name="messages" id="messages">
 			<documentation>
-				<description xml:space="preserve">A status message to indicate if everything went correctly or if an error happened during the execution. Note that if the service finds that the problem is infeasible, this is not considered as an error.</description>
+				<description>A status message to indicate if everything went correctly or if an error happened during the execution. Note that if the service finds that the problem is infeasible, this is not considered as an error.</description>
 			</documentation>
 			<xmcda tag="methodMessages" />
 		</output>
-		<output displayName="result status" name="result_status" id="result_status"
+		<output displayName="result status" name="result_status"
+			id="result_status" isoptional="0">
+			<documentation>
+				<description>The result status: if feasible, then one solution was found, otherwise the status indicates what happened (e.g. the program is infeasible).</description>
+			</documentation>
+			<xmcda tag="methodMessages" />
+		</output>
+		<output displayName="profiles performances"
+			name="performances_profiles" id="performances_profiles"
 			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The result status: if feasible, then one solution was found, otherwise the status indicates what happened (e.g. the program is infeasible).</description>
-			</documentation>
-			<xmcda tag="methodMessages" />
-		</output>
-		<output displayName="profiles performances" name="performances_profiles"
-			id="performances_profiles" isoptional="0">
-			<documentation>
-				<description xml:space="preserve">The performances of the shared profiles.</description>
+				<description>The performances of the shared profiles.</description>
 			</documentation>
 			<xmcda tag="performanceTable" />
 		</output>
-		<output displayName="group coalitions" name="coalitions" id="coalitions"
-			isoptional="0">
+		<output displayName="group coalitions" name="coalitions"
+			id="coalitions" isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The resulting group coalitions.</description>
+				<description>The resulting group coalitions.</description>
 			</documentation>
 			<xmcda tag="criteriaSets" />
 		</output>
 		<output displayName="veto thresholds" name="veto_thresholds"
 			id="veto_thresholds" isoptional="1">
 			<documentation>
-				<description xml:space="preserve">The resulting veto thresholds.</description>
+				<description>The resulting veto thresholds.</description>
 			</documentation>
 			<xmcda tag="criteria" />
 		</output>

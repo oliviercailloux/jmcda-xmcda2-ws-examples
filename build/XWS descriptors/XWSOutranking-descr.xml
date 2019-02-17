@@ -1,51 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<program_description>
+<program_description
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://www.decision-deck.org/ws/_downloads/description.xsd">
 	<program name="ElectreOutranking" provider="J-MCDA" version="${version}"
 		displayName="ElectreOutranking" />
 	<documentation>
-		<description xml:space="preserve">Computes an outranking relation.</description>
-		<contact xml:space="preserve">Olivier Cailloux &lt;olivier.cailloux@ecp.fr></contact>
-		<url xml:space="preserve">http://sourceforge.net/projects/j-mcda/</url>
-		<reference xml:space="preserve">Cailloux, Olivier. Electre and Promethee MCDA methods as reusable software components. In Proceedings of the 25th Mini-EURO Conference on Uncertainty and Robustness in Planning and Decision Making (URPDM 2010). Coimbra, Portugal, 2010.</reference>
+		<description>Computes an outranking relation.</description>
+		<contact>Olivier Cailloux &lt;olivier.cailloux@dauphine.fr></contact>
+		<url>https://github.com/oliviercailloux/jmcda-xmcda2-ws-examples</url>
+		<reference>Cailloux, Olivier. Electre and Promethee MCDA methods as reusable software components. In Proceedings of the 25th Mini-EURO Conference on Uncertainty and Robustness in Planning and Decision Making (URPDM 2010). Coimbra, Portugal, 2010.</reference>
 	</documentation>
 	<parameters>
 		<input displayName="alternatives" name="alternatives" id="input0"
 			isoptional="1">
 			<documentation>
-				<description xml:space="preserve">The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.</description>
+				<description>The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.</description>
 			</documentation>
 			<xmcda tag="alternatives" />
 		</input>
 		<input displayName="criteria" name="criteria" id="input1"
 			isoptional="1">
 			<documentation>
-				<description xml:space="preserve">The criteria to consider, only used as filter. Set some criteria as inactive (or remove them) to ignore them. Please note that these criteria will only (possibly) filter out corresponding discordances. The concordances must have been computed with the same set of criteria, otherwise the results will be meaningless.</description>
+				<description>The criteria to consider, only used as filter. Set some criteria as inactive (or remove them) to ignore them. Please note that these criteria will only (possibly) filter out corresponding discordances. The concordances must have been computed with the same set of criteria, otherwise the results will be meaningless.</description>
 			</documentation>
 			<xmcda tag="criteria" />
 		</input>
 		<input displayName="discordances" name="discordances" id="input2"
 			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The discordance relations to use (one per criterion).</description>
+				<description>The discordance relations to use (one per criterion).</description>
 			</documentation>
 			<xmcda tag="alternativesComparisons" />
 		</input>
 		<input displayName="concordance" name="concordance" id="input3"
 			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The concordance relation to use.</description>
+				<description>The concordance relation to use.</description>
 			</documentation>
 			<xmcda tag="alternativesComparisons" />
 		</input>
 		<output displayName="outranking" name="outranking" id="output0">
 			<documentation>
-				<description xml:space="preserve">The outranking relation computed from the given data.</description>
+				<description>The outranking relation computed from the given data.</description>
 			</documentation>
 			<xmcda tag="alternativesComparisons" />
 		</output>
 		<output displayName="messages" name="messages" id="output1">
 			<documentation>
-				<description xml:space="preserve">A status message.</description>
+				<description>A status message.</description>
 			</documentation>
 			<xmcda tag="methodMessages" />
 		</output>

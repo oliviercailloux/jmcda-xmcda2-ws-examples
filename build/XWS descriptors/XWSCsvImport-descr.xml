@@ -1,43 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<program_description>
+<program_description
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://www.decision-deck.org/ws/_downloads/description.xsd">
 	<program name="CsvImport" provider="J-MCDA" version="${version}"
 		displayName="CsvImport" />
 	<documentation>
-		<description xml:space="preserve">Transforms a performance table from a comma-separated values (CSV) file to XMCDA compliant files.</description>
-		<contact>Olivier Cailloux &lt;olivier.cailloux@ecp.fr></contact>
-		<url>http://sourceforge.net/projects/j-mcda/</url>
+		<description>Transforms a performance table from a comma-separated values (CSV) file to XMCDA compliant files.</description>
+		<contact>Olivier Cailloux &lt;olivier.cailloux@dauphine.fr></contact>
+		<url>https://github.com/oliviercailloux/jmcda-xmcda2-ws-examples</url>
 	</documentation>
 	<parameters>
 		<input displayName="performances" name="performances" id="input0"
 			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The alternatives, criteria, performances as a CSV file.</description>
+				<description>The alternatives, criteria, performances as a CSV file.</description>
 			</documentation>
 			<!-- <xmcda tag="alternatives" /> -->
 		</input>
 		<output displayName="alternatives" name="alternatives" id="output0">
 			<documentation>
-				<description xml:space="preserve">The equivalent alternatives.</description>
+				<description>The equivalent alternatives.</description>
 			</documentation>
 			<xmcda tag="alternatives" />
 		</output>
 		<output displayName="criteria" name="criteria" id="output1">
 			<documentation>
-				<description xml:space="preserve">The equivalent criteria.
+				<description>The equivalent criteria.
 				</description>
 			</documentation>
 			<xmcda tag="criteria" />
 		</output>
 		<output displayName="performances" name="performances" id="output2">
 			<documentation>
-				<description xml:space="preserve">The equivalent performances.
+				<description>The equivalent performances.
 				</description>
 			</documentation>
 			<xmcda tag="performanceTable" />
 		</output>
 		<output displayName="messages" name="messages" id="output3">
 			<documentation>
-				<description xml:space="preserve">A status message.</description>
+				<description>A status message.</description>
 			</documentation>
 			<xmcda tag="methodMessages" />
 		</output>

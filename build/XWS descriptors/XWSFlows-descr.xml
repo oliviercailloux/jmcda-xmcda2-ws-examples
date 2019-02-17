@@ -1,32 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<program_description>
+<program_description
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://www.decision-deck.org/ws/_downloads/description.xsd">
 	<program name="PrometheeFlows" provider="J-MCDA" version="${version}"
 		displayName="PrometheeFlows" />
 	<documentation>
-		<description xml:space="preserve">Computes Promethee flows (net flows, positive flows, or negative flows).</description>
-		<contact xml:space="preserve">Olivier Cailloux &lt;olivier.cailloux@ecp.fr></contact>
-		<url xml:space="preserve">http://sourceforge.net/projects/j-mcda/</url>
-		<reference xml:space="preserve">Cailloux, Olivier. Electre and Promethee MCDA methods as reusable software components. In Proceedings of the 25th Mini-EURO Conference on Uncertainty and Robustness in Planning and Decision Making (URPDM 2010). Coimbra, Portugal, 2010.</reference>
+		<description>Computes Promethee flows (net flows, positive flows, or negative flows).</description>
+		<contact>Olivier Cailloux &lt;olivier.cailloux@dauphine.fr></contact>
+		<url>https://github.com/oliviercailloux/jmcda-xmcda2-ws-examples</url>
+		<reference>Cailloux, Olivier. Electre and Promethee MCDA methods as reusable software components. In Proceedings of the 25th Mini-EURO Conference on Uncertainty and Robustness in Planning and Decision Making (URPDM 2010). Coimbra, Portugal, 2010.</reference>
 	</documentation>
 	<parameters>
 		<input displayName="alternatives" name="alternatives" id="input0"
 			isoptional="1">
 			<documentation>
-				<description xml:space="preserve">The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.</description>
+				<description>The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.</description>
 			</documentation>
 			<xmcda tag="alternatives" />
 		</input>
 		<input displayName="preference" name="preference" id="input1"
 			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The preference relation from which to compute flows.</description>
+				<description>The preference relation from which to compute flows.</description>
 			</documentation>
 			<xmcda tag="alternativesComparisons" />
 		</input>
 		<input displayName="flow_type" name="flow_type" id="input2"
 			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The type of flow to compute: positive, negative or net.</description>
+				<description>The type of flow to compute: positive, negative or net.</description>
 			</documentation>
 			<xmcda tag="methodParameters">
 <![CDATA[
@@ -43,15 +45,15 @@
 				<entry id="%1" type="enum" displayName="flow_type">
 					<items>
 						<item id="item0">
-							<description xml:space="preserve">The positive flow.</description>
+							<description>The positive flow.</description>
 							<value>POSITIVE</value>
 						</item>
 						<item id="item1">
-							<description xml:space="preserve">The negative flow.</description>
+							<description>The negative flow.</description>
 							<value>NEGATIVE</value>
 						</item>
 						<item id="item2">
-							<description xml:space="preserve">The net flow.</description>
+							<description>The net flow.</description>
 							<value>NET</value>
 						</item>
 					</items>
@@ -60,13 +62,13 @@
 		</input>
 		<output displayName="flows" name="flows" id="output0">
 			<documentation>
-				<description xml:space="preserve">The flows computed from the given data.</description>
+				<description>The flows computed from the given data.</description>
 			</documentation>
 			<xmcda tag="alternativesValues" />
 		</output>
 		<output displayName="messages" name="messages" id="output1">
 			<documentation>
-				<description xml:space="preserve">A status message.</description>
+				<description>A status message.</description>
 			</documentation>
 			<xmcda tag="methodMessages" />
 		</output>

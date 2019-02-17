@@ -1,53 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<program_description>
+<program_description
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="https://www.decision-deck.org/ws/_downloads/description.xsd">
 	<program name="ElectreTriExploitation" provider="J-MCDA"
 		version="${version}" displayName="ElectreTriExploitation" />
 	<documentation>
-		<description xml:space="preserve">Computes assignments according to the Electre TRI procedure.</description>
-		<contact xml:space="preserve">Olivier Cailloux &lt;olivier.cailloux@ecp.fr></contact>
-		<url xml:space="preserve">http://sourceforge.net/projects/j-mcda/</url>
+		<description>Computes assignments according to the Electre TRI procedure.</description>
+		<contact>Olivier Cailloux &lt;olivier.cailloux@dauphine.fr></contact>
+		<url>https://github.com/oliviercailloux/jmcda-xmcda2-ws-examples</url>
 		<reference />
 	</documentation>
 	<parameters>
 		<input displayName="alternatives" name="alternatives" id="input0"
 			isoptional="1">
 			<documentation>
-				<description xml:space="preserve">The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.</description>
+				<description>The alternatives to consider. Set some alternatives as inactive (or remove them) to ignore them.</description>
 			</documentation>
 			<xmcda tag="alternatives" />
 		</input>
 		<input displayName="categories_profiles" name="categories_profiles"
 			id="input1" isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The profiles of the categories in which alternatives are to be sorted.</description>
+				<description>The profiles of the categories in which alternatives are to be sorted.</description>
 			</documentation>
 			<xmcda tag="categoriesProfiles" />
 		</input>
 		<input displayName="weights" name="weights" id="input2"
 			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The weights of the criteria to consider.</description>
+				<description>The weights of the criteria to consider.</description>
 			</documentation>
 			<xmcda tag="criteriaValues" />
 		</input>
 		<input displayName="alternatives performances" name="performances_alternatives"
 			id="input3-1" isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The performances of the alternatives.</description>
+				<description>The performances of the alternatives.</description>
 			</documentation>
 			<xmcda tag="performanceTable" />
 		</input>
 		<input displayName="profiles performances" name="performances_profiles"
 			id="input3-2" isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The performances of the profiles.</description>
+				<description>The performances of the profiles.</description>
 			</documentation>
 			<xmcda tag="performanceTable" />
 		</input>
 		<input displayName="cut threshold" name="cut_threshold" id="input4"
 			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The majority threshold specifying where to cut the outranking relation.</description>
+				<description>The majority threshold specifying where to cut the outranking relation.</description>
 			</documentation>
 			<xmcda tag="methodParameters">
 <![CDATA[
@@ -68,14 +70,14 @@
 		<input displayName="criteria" name="criteria" id="input5"
 			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The criteria to consider, possibly with preference, indifference and veto thresholds. Each one must have a preference direction. Set some criteria as inactive (or remove them) to ignore them.</description>
+				<description>The criteria to consider, possibly with preference, indifference and veto thresholds. Each one must have a preference direction. Set some criteria as inactive (or remove them) to ignore them.</description>
 			</documentation>
 			<xmcda tag="criteria" />
 		</input>
 		<input displayName="sorting_mode" name="sorting_mode" id="input7"
 			isoptional="0">
 			<documentation>
-				<description xml:space="preserve">The type of sorting to use (optimistic, pessimistic or both).</description>
+				<description>The type of sorting to use (optimistic, pessimistic or both).</description>
 			</documentation>
 			<xmcda tag="methodParameters">
 <![CDATA[
@@ -92,15 +94,15 @@
 				<entry id="%1" type="enum" displayName="sorting_mode">
 					<items>
 						<item id="item0">
-							<description xml:space="preserve">Optimistic sorting.</description>
+							<description>Optimistic sorting.</description>
 							<value>OPTIMISTIC</value>
 						</item>
 						<item id="item1">
-							<description xml:space="preserve">Pessimistic sorting.</description>
+							<description>Pessimistic sorting.</description>
 							<value>PESSIMISTIC</value>
 						</item>
 						<item id="item2">
-							<description xml:space="preserve">Sorting both optimistic and pessimistic.</description>
+							<description>Sorting both optimistic and pessimistic.</description>
 							<value>BOTH</value>
 						</item>
 					</items>
@@ -110,7 +112,7 @@
 		<input displayName="use crisp vetoes" name="crisp_vetoes" id="crisp_vetoes"
 			isoptional="1">
 			<documentation>
-				<description xml:space="preserve">Whether the veto thresholds are considered crisp (or binary). If true, a veto either has full effect (when the performance is low enough for the veto to activate) or no effect at all. Defaults to false, thus the vetoes may have partial effect, as in the original Electre Tri description.</description>
+				<description>Whether the veto thresholds are considered crisp (or binary). If true, a veto either has full effect (when the performance is low enough for the veto to activate) or no effect at all. Defaults to false, thus the vetoes may have partial effect, as in the original Electre Tri description.</description>
 			</documentation>
 			<xmcda tag="methodParameters">
 <![CDATA[
@@ -130,13 +132,13 @@
 		</input>
 		<output displayName="affectations" name="affectations" id="output0">
 			<documentation>
-				<description xml:space="preserve">The affectations of the alternatives computed from the given input data.</description>
+				<description>The affectations of the alternatives computed from the given input data.</description>
 			</documentation>
 			<xmcda tag="alternativesAffectations" />
 		</output>
 		<output displayName="messages" name="messages" id="output1">
 			<documentation>
-				<description xml:space="preserve">A status message.</description>
+				<description>A status message.</description>
 			</documentation>
 			<xmcda tag="methodMessages" />
 		</output>
