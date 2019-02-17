@@ -1,8 +1,7 @@
-<assembly
-	xmlns="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0"
+<assembly xmlns="http://maven.apache.org/ASSEMBLY/2.0.0"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/plugins/maven-assembly-plugin/assembly/1.1.0
- http://maven.apache.org/xsd/assembly-1.1.0.xsd">
+	xsi:schemaLocation="http://maven.apache.org/ASSEMBLY/2.0.0
+ http://maven.apache.org/xsd/assembly-2.0.0.xsd">
 	<id>deploy</id>
 	<formats>
 		<format>zip</format>
@@ -17,87 +16,79 @@
 	</dependencySets>
 	<files>
 		<file>
-			<source>target/${project.artifactId}-${project.version}-no-config.jar</source>
-			<outputDirectory>/lib/</outputDirectory>
+			<source>target/${project.artifactId}-${project.version}.jar</source>
+			<outputDirectory>lib</outputDirectory>
 		</file>
 		<file>
-			<source>../build/Launch/XWS launch</source>
-			<outputDirectory>/</outputDirectory>
-			<destName>launch</destName>
-			<fileMode>0740</fileMode>
-		</file>
-		<file>
-			<source>../build/Launch/XWS tests</source>
-			<outputDirectory>/</outputDirectory>
+			<source>build/XWS tests</source>
 			<destName>test</destName>
 			<fileMode>0740</fileMode>
 		</file>
 		<file>
-			<source>../build/Conf/diviz logback.xml</source>
-			<outputDirectory>/conf</outputDirectory>
+			<source>build/diviz logback.xml</source>
+			<outputDirectory>conf</outputDirectory>
 			<destName>logback.xml</destName>
 		</file>
+
 		<file>
-			<source>../build/XWS descriptors/XWSConcordance-descr.xml</source>
-			<outputDirectory>/Descriptors/ElectreConcordance-J-MCDA</outputDirectory>
+			<source>build/XWS descriptors/XWSConcordance-descr.xml</source>
+			<outputDirectory>Descriptors/ElectreConcordance-J-MCDA</outputDirectory>
 			<destName>description-wsDD.xml</destName>
 			<filtered>true</filtered>
 		</file>
 		<file>
-			<source>../build/XWS descriptors/XWSCutRelation-descr.xml</source>
-			<outputDirectory>/Descriptors/cutRelation-J-MCDA</outputDirectory>
+			<source>build/XWS descriptors/XWSCutRelation-descr.xml</source>
+			<outputDirectory>Descriptors/cutRelation-J-MCDA</outputDirectory>
 			<destName>description-wsDD.xml</destName>
 			<filtered>true</filtered>
 		</file>
 		<file>
-			<source>../build/XWS descriptors/XWSDiscordances-descr.xml</source>
-			<outputDirectory>/Descriptors/ElectreDiscordances-J-MCDA</outputDirectory>
+			<source>build/XWS descriptors/XWSDiscordances-descr.xml</source>
+			<outputDirectory>Descriptors/ElectreDiscordances-J-MCDA</outputDirectory>
 			<destName>description-wsDD.xml</destName>
 			<filtered>true</filtered>
 		</file>
 		<file>
-			<source>../build/XWS descriptors/XWSFlows-descr.xml</source>
-			<outputDirectory>/Descriptors/PrometheeFlows-J-MCDA</outputDirectory>
+			<source>build/XWS descriptors/XWSFlows-descr.xml</source>
+			<outputDirectory>Descriptors/PrometheeFlows-J-MCDA</outputDirectory>
 			<destName>description-wsDD.xml</destName>
 			<filtered>true</filtered>
 		</file>
 		<file>
-			<source>../build/XWS descriptors/XWSOutranking-descr.xml</source>
-			<outputDirectory>/Descriptors/ElectreOutranking-J-MCDA</outputDirectory>
+			<source>build/XWS descriptors/XWSOutranking-descr.xml</source>
+			<outputDirectory>Descriptors/ElectreOutranking-J-MCDA</outputDirectory>
 			<destName>description-wsDD.xml</destName>
 			<filtered>true</filtered>
 		</file>
 		<file>
-			<source>../build/XWS descriptors/XWSPreference-descr.xml</source>
-			<outputDirectory>/Descriptors/PrometheePreference-J-MCDA</outputDirectory>
+			<source>build/XWS descriptors/XWSPreference-descr.xml</source>
+			<outputDirectory>Descriptors/PrometheePreference-J-MCDA</outputDirectory>
 			<destName>description-wsDD.xml</destName>
 			<filtered>true</filtered>
 		</file>
 		<file>
-			<source>../build/XWS descriptors/XWSPrometheeProfiles-descr.xml</source>
-			<outputDirectory>/Descriptors/PrometheeProfiles-J-MCDA</outputDirectory>
+			<source>build/XWS descriptors/XWSPrometheeProfiles-descr.xml</source>
+			<outputDirectory>Descriptors/PrometheeProfiles-J-MCDA</outputDirectory>
 			<destName>description-wsDD.xml</destName>
 			<filtered>true</filtered>
 		</file>
 		<file>
-			<source>../build/XWS descriptors/XWSSorting-descr.xml</source>
-			<outputDirectory>/Descriptors/ElectreTriExploitation-J-MCDA</outputDirectory>
+			<source>build/XWS descriptors/XWSSorting-descr.xml</source>
+			<outputDirectory>Descriptors/ElectreTriExploitation-J-MCDA</outputDirectory>
 			<destName>description-wsDD.xml</destName>
 			<filtered>true</filtered>
 		</file>
 		<file>
-			<source>../build/XWS descriptors/XWSCsvImport-descr.xml</source>
-			<outputDirectory>/Descriptors/CsvImport-J-MCDA</outputDirectory>
+			<source>build/XWS descriptors/XWSCsvImport-descr.xml</source>
+			<outputDirectory>Descriptors/CsvImport-J-MCDA</outputDirectory>
 			<destName>description-wsDD.xml</destName>
 			<filtered>true</filtered>
 		</file>
 	</files>
 	<fileSets>
 		<fileSet>
-			<directory>../build/XWS test files</directory>
-			<includes>
-			</includes>
-			<outputDirectory>/Test files</outputDirectory>
+			<directory>build/XWS test files</directory>
+			<outputDirectory>Test files</outputDirectory>
 		</fileSet>
 	</fileSets>
 </assembly>
