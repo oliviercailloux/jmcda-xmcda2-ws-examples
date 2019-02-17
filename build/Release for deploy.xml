@@ -11,9 +11,6 @@
 	<baseDirectory>J-MCDA</baseDirectory>
 	<dependencySets>
 		<dependencySet>
-			<!-- <excludes> -->
-			<!-- <exclude>${project.artifactId}-${project.version}.jar</exclude> -->
-			<!-- </excludes> -->
 			<useProjectArtifact>false</useProjectArtifact>
 			<outputDirectory>/lib</outputDirectory>
 		</dependencySet>
