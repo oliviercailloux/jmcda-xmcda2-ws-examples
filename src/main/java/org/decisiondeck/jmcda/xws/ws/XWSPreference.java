@@ -28,44 +28,44 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
 public class XWSPreference implements IXWS {
-    private static final Logger s_logger = LoggerFactory.getLogger(XWSPreference.class);
+	private static final Logger s_logger = LoggerFactory.getLogger(XWSPreference.class);
 
-    @XWSInput(name = "alternatives.xml", optional = true)
-    public Set<Alternative> m_alternatives;
+	@XWSInput(name = "alternatives.xml", optional = true)
+	public Set<Alternative> m_alternatives;
 
-    @XWSInput(name = "criteria.xml")
-    public Map<Criterion, Interval> m_scales;
+	@XWSInput(name = "criteria.xml")
+	public Map<Criterion, Interval> m_scales;
 
-    @XWSInput(name = "criteria.xml", optional = true)
-    public Thresholds m_thresholds;
+	@XWSInput(name = "criteria.xml", optional = true)
+	public Thresholds m_thresholds;
 
-    @XWSInput(name = "weights.xml")
-    public Weights m_weights;
+	@XWSInput(name = "weights.xml")
+	public Weights m_weights;
 
-    @XWSInput(name = "performances.xml")
-    public Evaluations m_evaluations;
+	@XWSInput(name = "performances.xml")
+	public Evaluations m_evaluations;
 
-    @XWSOutput(name = "messages.xml")
-    @XWSExceptions
-    public List<InvalidInputException> m_exceptions;
+	@XWSOutput(name = "messages.xml")
+	@XWSExceptions
+	public List<InvalidInputException> m_exceptions;
 
-    @XWSOutput(name = "preference.xml")
-    public SparseMatrixFuzzy<Alternative, Alternative> m_preference;
+	@XWSOutput(name = "preference.xml")
+	public SparseMatrixFuzzy<Alternative, Alternative> m_preference;
 
-    @XWSInput(name = "criteria.xml", optional = true)
-    public Set<Criterion> m_criteria;
+	@XWSInput(name = "criteria.xml", optional = true)
+	public Set<Criterion> m_criteria;
 
-    @Override
-    public void execute() throws InvalidInputException {
-	s_logger.info("Computing preference.");
-	final Predicate<Alternative> inAlts = m_alternatives == null ? null : Predicates.in(m_alternatives);
-	final Predicate<Criterion> inCrits = m_criteria == null ? null : Predicates.in(m_criteria);
-	final ISortingPreferences preferences = ProblemFactory.newSortingPreferences(m_evaluations, m_scales, null,
-		null, m_thresholds, CoalitionsUtils.wrap(m_weights));
-	final ISortingPreferences restricted = ProblemViewFactory
-		.getRestrictedPreferences(preferences, inAlts, inCrits);
-	m_preference = new Concordance().preference(restricted, restricted.getThresholds(), restricted.getCoalitions()
-		.getWeights());
-	s_logger.info("Finished working.");
-    }
+	@Override
+	public void execute() throws InvalidInputException {
+		s_logger.info("Computing preference.");
+		final Predicate<Alternative> inAlts = m_alternatives == null ? null : Predicates.in(m_alternatives);
+		final Predicate<Criterion> inCrits = m_criteria == null ? null : Predicates.in(m_criteria);
+		final ISortingPreferences preferences = ProblemFactory.newSortingPreferences(m_evaluations, m_scales, null,
+				null, m_thresholds, CoalitionsUtils.wrap(m_weights));
+		final ISortingPreferences restricted = ProblemViewFactory.getRestrictedPreferences(preferences, inAlts,
+				inCrits);
+		m_preference = new Concordance().preference(restricted, restricted.getThresholds(),
+				restricted.getCoalitions().getWeights());
+		s_logger.info("Finished working.");
+	}
 }

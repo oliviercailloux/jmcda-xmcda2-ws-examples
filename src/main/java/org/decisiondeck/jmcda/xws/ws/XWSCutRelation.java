@@ -17,36 +17,36 @@ import org.decisiondeck.jmcda.xws.XWSOutput;
 import com.google.common.collect.Sets;
 
 public class XWSCutRelation implements IXWS {
-    @XWSInput(name = "relation.xml")
-    public SparseMatrixD<Alternative, Alternative> m_input;
+	@XWSInput(name = "relation.xml")
+	public SparseMatrixD<Alternative, Alternative> m_input;
 
-    @XWSOutput(name = "binary_relation.xml")
-    public SparseMatrixFuzzy<Alternative, Alternative> m_output;
+	@XWSOutput(name = "binary_relation.xml")
+	public SparseMatrixFuzzy<Alternative, Alternative> m_output;
 
-    @XWSInput(name = "cut_threshold.xml")
-    public double m_cutThreshold;
+	@XWSInput(name = "cut_threshold.xml")
+	public double m_cutThreshold;
 
-    @XWSOutput(name = "messages.xml")
-    @XWSExceptions
-    public List<InvalidInputException> m_exceptions;
+	@XWSOutput(name = "messages.xml")
+	@XWSExceptions
+	public List<InvalidInputException> m_exceptions;
 
-    @XWSInput(name = "alternatives.xml", optional = true)
-    public Set<Alternative> m_alternatives;
+	@XWSInput(name = "alternatives.xml", optional = true)
+	public Set<Alternative> m_alternatives;
 
-    @Override
-    public void execute() throws InvalidInputException {
-	final Set<Alternative> inputAlternatives = Sets.union(m_input.getRows(), m_input.getColumns());
-	final Set<Alternative> toKeep = m_alternatives == null ? inputAlternatives : m_alternatives;
-	final SparseMatrixD<Alternative, Alternative> in = Matrixes.newSparseD();
-	for (Alternative alternative : toKeep) {
-	    for (Alternative column : toKeep) {
-		final Double entry = m_input.getEntry(alternative, column);
-		if (entry != null) {
-		    in.put(alternative, column, entry.doubleValue());
+	@Override
+	public void execute() throws InvalidInputException {
+		final Set<Alternative> inputAlternatives = Sets.union(m_input.getRows(), m_input.getColumns());
+		final Set<Alternative> toKeep = m_alternatives == null ? inputAlternatives : m_alternatives;
+		final SparseMatrixD<Alternative, Alternative> in = Matrixes.newSparseD();
+		for (Alternative alternative : toKeep) {
+			for (Alternative column : toKeep) {
+				final Double entry = m_input.getEntry(alternative, column);
+				if (entry != null) {
+					in.put(alternative, column, entry.doubleValue());
+				}
+			}
 		}
-	    }
+		m_output = new CutRel<Alternative, Alternative>().cut(in, m_cutThreshold);
 	}
-	m_output = new CutRel<Alternative, Alternative>().cut(in, m_cutThreshold);
-    }
 
 }

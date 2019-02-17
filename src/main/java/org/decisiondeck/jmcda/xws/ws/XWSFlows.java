@@ -21,46 +21,46 @@ import org.slf4j.LoggerFactory;
 import com.google.common.collect.Sets;
 
 public class XWSFlows implements IXWS {
-    private static final Logger s_logger = LoggerFactory.getLogger(XWSFlows.class);
+	private static final Logger s_logger = LoggerFactory.getLogger(XWSFlows.class);
 
-    @XWSInput(name = "preference.xml")
-    public SparseMatrixFuzzy<Alternative, Alternative> m_preference;
+	@XWSInput(name = "preference.xml")
+	public SparseMatrixFuzzy<Alternative, Alternative> m_preference;
 
-    @XWSInput(name = "flow_type.xml")
-    public String m_flowType;
+	@XWSInput(name = "flow_type.xml")
+	public String m_flowType;
 
-    @XWSOutput(name = "flows.xml")
-    public AlternativesScores m_flows;
+	@XWSOutput(name = "flows.xml")
+	public AlternativesScores m_flows;
 
-    @XWSOutput(name = "messages.xml")
-    @XWSExceptions
-    public List<InvalidInputException> m_exceptions;
+	@XWSOutput(name = "messages.xml")
+	@XWSExceptions
+	public List<InvalidInputException> m_exceptions;
 
-    @XWSInput(name = "alternatives.xml", optional = true)
-    public Set<Alternative> m_alternatives;
+	@XWSInput(name = "alternatives.xml", optional = true)
+	public Set<Alternative> m_alternatives;
 
-    @Override
-    public void execute() throws InvalidInputException {
-	s_logger.info("Computing flows.");
-	if (!FlowType.strings().contains(m_flowType)) {
-	    throw new InvalidInputException("Unexpected flow type: " + m_flowType + ".");
-	}
-	final FlowType type = FlowType.valueOf(m_flowType);
-	final Set<Alternative> inputAlternatives = Sets.union(m_preference.getRows(), m_preference.getColumns());
-	final Set<Alternative> toKeep = m_alternatives == null ? inputAlternatives : m_alternatives;
-	final SparseMatrixD<Alternative, Alternative> preference = Matrixes.newSparseD();
-	for (Alternative alternative : toKeep) {
-	    for (Alternative column : toKeep) {
-		final Double entry = m_preference.getEntry(alternative, column);
-		if (entry != null) {
-		    preference.put(alternative, column, entry.doubleValue());
+	@Override
+	public void execute() throws InvalidInputException {
+		s_logger.info("Computing flows.");
+		if (!FlowType.strings().contains(m_flowType)) {
+			throw new InvalidInputException("Unexpected flow type: " + m_flowType + ".");
 		}
-	    }
+		final FlowType type = FlowType.valueOf(m_flowType);
+		final Set<Alternative> inputAlternatives = Sets.union(m_preference.getRows(), m_preference.getColumns());
+		final Set<Alternative> toKeep = m_alternatives == null ? inputAlternatives : m_alternatives;
+		final SparseMatrixD<Alternative, Alternative> preference = Matrixes.newSparseD();
+		for (Alternative alternative : toKeep) {
+			for (Alternative column : toKeep) {
+				final Double entry = m_preference.getEntry(alternative, column);
+				if (entry != null) {
+					preference.put(alternative, column, entry.doubleValue());
+				}
+			}
+		}
+		if (preference.isEmpty()) {
+			throw new InvalidInputException("Empty input preferences: nothing to compute.");
+		}
+		m_flows = new Flow().getFlows(type, preference);
+		s_logger.info("Finished working.");
 	}
-	if (preference.isEmpty()) {
-	    throw new InvalidInputException("Empty input preferences: nothing to compute.");
-	}
-	m_flows = new Flow().getFlows(type, preference);
-	s_logger.info("Finished working.");
-    }
 }

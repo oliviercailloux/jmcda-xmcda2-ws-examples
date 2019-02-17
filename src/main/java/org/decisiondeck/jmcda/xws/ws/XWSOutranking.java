@@ -20,38 +20,37 @@ import org.slf4j.LoggerFactory;
 import com.google.common.collect.Sets;
 
 public class XWSOutranking implements IXWS {
-    private static final Logger s_logger = LoggerFactory.getLogger(XWSOutranking.class);
+	private static final Logger s_logger = LoggerFactory.getLogger(XWSOutranking.class);
 
-    @XWSOutput(name = "messages.xml")
-    @XWSExceptions
-    public List<InvalidInputException> m_exceptions;
+	@XWSOutput(name = "messages.xml")
+	@XWSExceptions
+	public List<InvalidInputException> m_exceptions;
 
-    @XWSInput(name = "concordance.xml")
-    public SparseMatrixFuzzy<Alternative, Alternative> m_concordance;
+	@XWSInput(name = "concordance.xml")
+	public SparseMatrixFuzzy<Alternative, Alternative> m_concordance;
 
-    @XWSInput(name = "discordances.xml")
-    public Map<Criterion, SparseAlternativesMatrixFuzzy> m_discordances;
+	@XWSInput(name = "discordances.xml")
+	public Map<Criterion, SparseAlternativesMatrixFuzzy> m_discordances;
 
-    @XWSOutput(name = "outranking.xml")
-    public SparseMatrixFuzzy<Alternative, Alternative> m_outranking;
+	@XWSOutput(name = "outranking.xml")
+	public SparseMatrixFuzzy<Alternative, Alternative> m_outranking;
 
-    @XWSInput(name = "alternatives.xml", optional = true)
-    public Set<Alternative> m_alternatives;
+	@XWSInput(name = "alternatives.xml", optional = true)
+	public Set<Alternative> m_alternatives;
 
-    @XWSInput(name = "criteria.xml", optional = true)
-    public Set<Criterion> m_criteria;
+	@XWSInput(name = "criteria.xml", optional = true)
+	public Set<Criterion> m_criteria;
 
-    @Override
-    public void execute() throws InvalidInputException {
-	s_logger.info("Computing outranking.");
-	final Outranking outranking = new Outranking();
-	outranking.setTolerance(0);
-	final Set<Alternative> inputAlternatives = Sets.union(m_concordance.getRows(), m_concordance.getColumns());
-	final Set<Alternative> alternatives = m_alternatives == null ? inputAlternatives : m_alternatives;
-	final Set<Criterion> inputCriteria = m_discordances.keySet();
-	final Set<Criterion> criteria = m_criteria == null ? inputCriteria : m_criteria;
-	m_outranking = outranking.getOutranking(alternatives, criteria, m_concordance,
-		m_discordances);
-	s_logger.info("Finished working.");
-    }
+	@Override
+	public void execute() throws InvalidInputException {
+		s_logger.info("Computing outranking.");
+		final Outranking outranking = new Outranking();
+		outranking.setTolerance(0);
+		final Set<Alternative> inputAlternatives = Sets.union(m_concordance.getRows(), m_concordance.getColumns());
+		final Set<Alternative> alternatives = m_alternatives == null ? inputAlternatives : m_alternatives;
+		final Set<Criterion> inputCriteria = m_discordances.keySet();
+		final Set<Criterion> criteria = m_criteria == null ? inputCriteria : m_criteria;
+		m_outranking = outranking.getOutranking(alternatives, criteria, m_concordance, m_discordances);
+		s_logger.info("Finished working.");
+	}
 }

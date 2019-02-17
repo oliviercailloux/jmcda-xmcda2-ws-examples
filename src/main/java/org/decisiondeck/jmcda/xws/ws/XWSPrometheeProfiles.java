@@ -25,40 +25,40 @@ import com.google.common.base.Predicate;
 import com.google.common.base.Predicates;
 
 public class XWSPrometheeProfiles implements IXWS {
-    private static final Logger s_logger = LoggerFactory.getLogger(XWSPrometheeProfiles.class);
+	private static final Logger s_logger = LoggerFactory.getLogger(XWSPrometheeProfiles.class);
 
-    @XWSInput(name = "alternatives.xml", optional = true)
-    public Set<Alternative> m_alternatives;
+	@XWSInput(name = "alternatives.xml", optional = true)
+	public Set<Alternative> m_alternatives;
 
-    @XWSInput(name = "criteria.xml")
-    public Map<Criterion, Interval> m_scales;
+	@XWSInput(name = "criteria.xml")
+	public Map<Criterion, Interval> m_scales;
 
-    @XWSInput(name = "criteria.xml")
-    public Thresholds m_thresholds;
+	@XWSInput(name = "criteria.xml")
+	public Thresholds m_thresholds;
 
-    @XWSInput(name = "performances.xml")
-    public Evaluations m_evaluations;
+	@XWSInput(name = "performances.xml")
+	public Evaluations m_evaluations;
 
-    @XWSOutput(name = "messages.xml")
-    @XWSExceptions
-    public List<InvalidInputException> m_exceptions;
+	@XWSOutput(name = "messages.xml")
+	@XWSExceptions
+	public List<InvalidInputException> m_exceptions;
 
-    @XWSOutput(name = "promethee_profiles.xml")
-    public Evaluations m_profiles;
+	@XWSOutput(name = "promethee_profiles.xml")
+	public Evaluations m_profiles;
 
-    @XWSInput(name = "criteria.xml", optional = true)
-    public Set<Criterion> m_criteria;
+	@XWSInput(name = "criteria.xml", optional = true)
+	public Set<Criterion> m_criteria;
 
-    @Override
-    public void execute() throws InvalidInputException {
-	s_logger.info("Computing promethee profiles.");
-	final Predicate<Alternative> inAlts = m_alternatives == null ? null : Predicates.in(m_alternatives);
-	final Predicate<Criterion> inCrits = m_criteria == null ? null : Predicates.in(m_criteria);
-	final ISortingPreferences preferences = ProblemFactory.newSortingPreferences(m_evaluations, m_scales, null,
-		null, m_thresholds, null);
-	final ISortingPreferences restricted = ProblemViewFactory
-		.getRestrictedPreferences(preferences, inAlts, inCrits);
-	m_profiles = new PrometheeProfiles().computeProfiles(restricted, restricted.getThresholds());
-	s_logger.info("Finished working.");
-    }
+	@Override
+	public void execute() throws InvalidInputException {
+		s_logger.info("Computing promethee profiles.");
+		final Predicate<Alternative> inAlts = m_alternatives == null ? null : Predicates.in(m_alternatives);
+		final Predicate<Criterion> inCrits = m_criteria == null ? null : Predicates.in(m_criteria);
+		final ISortingPreferences preferences = ProblemFactory.newSortingPreferences(m_evaluations, m_scales, null,
+				null, m_thresholds, null);
+		final ISortingPreferences restricted = ProblemViewFactory.getRestrictedPreferences(preferences, inAlts,
+				inCrits);
+		m_profiles = new PrometheeProfiles().computeProfiles(restricted, restricted.getThresholds());
+		s_logger.info("Finished working.");
+	}
 }
