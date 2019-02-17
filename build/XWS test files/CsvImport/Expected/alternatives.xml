@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmc:XMCDA xmlns:xmc="http://www.decision-deck.org/2009/XMCDA-2.1.0">
+  <alternatives>
+    <alternative id="Audi A3 TDI e">
+      <active>true</active>
+    </alternative>
+    <alternative id="Audi A4 berline">
+      <active>true</active>
+    </alternative>
+    <alternative id="BMW 118d Hatch">
+      <active>true</active>
+    </alternative>
+    <alternative id="BMW 320d Berline">
+      <active>true</active>
+    </alternative>
+    <alternative id="Volvo C30">
+      <active>true</active>
+    </alternative>
+    <alternative id="Volvo S40 D5">
+      <active>true</active>
+    </alternative>
+  </alternatives>
+</xmc:XMCDA>
