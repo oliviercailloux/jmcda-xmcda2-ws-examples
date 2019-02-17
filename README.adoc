@@ -1,6 +1,6 @@
 = J-MCDA xmcda2-ws-examples
 :groupId: io.github.oliviercailloux.jmcda
-:artifactId: ws-examples
+:artifactId: xmcda2-ws-examples
 :repository: jmcda-{artifactId}
 
 image:https://travis-ci.com/oliviercailloux/{repository}.svg?branch=master["Build Status", link="https://travis-ci.com/oliviercailloux/{repository}"]
