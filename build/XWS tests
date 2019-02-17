@@ -6,4 +6,3 @@ java -classpath "`dirname $0`/lib/*:`dirname $0`/conf" org.decisiondeck.jmcda.xw
 java -classpath "`dirname $0`/lib/*:`dirname $0`/conf" org.decisiondeck.jmcda.xws.XWSExecutor -w org.decisiondeck.jmcda.xws.ws.XWSPreference -i "Test files/Preference" -o "out/Preference"
 java -classpath "`dirname $0`/lib/*:`dirname $0`/conf" org.decisiondeck.jmcda.xws.XWSExecutor -w org.decisiondeck.jmcda.xws.ws.XWSPrometheeProfiles -i "Test files/PrometheeProfiles" -o "out/PrometheeProfiles"
 java -classpath "`dirname $0`/lib/*:`dirname $0`/conf" org.decisiondeck.jmcda.xws.XWSExecutor -w org.decisiondeck.jmcda.xws.ws.XWSSorting -i "Test files/Sorting" -o "out/Sorting"
-java -classpath "`dirname $0`/lib/*:`dirname $0`/conf" org.decisiondeck.jmcda.xws.XWSExecutor -w org.decisiondeck.jmcda.xws.ws.XWSCsvImport -i "Test files/CsvImport" -o "out/CsvImport"

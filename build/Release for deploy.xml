@@ -78,12 +78,6 @@
 			<destName>description-wsDD.xml</destName>
 			<filtered>true</filtered>
 		</file>
-		<file>
-			<source>build/XWS descriptors/XWSCsvImport-descr.xml</source>
-			<outputDirectory>Descriptors/CsvImport-J-MCDA</outputDirectory>
-			<destName>description-wsDD.xml</destName>
-			<filtered>true</filtered>
-		</file>
 	</files>
 	<fileSets>
 		<fileSet>
