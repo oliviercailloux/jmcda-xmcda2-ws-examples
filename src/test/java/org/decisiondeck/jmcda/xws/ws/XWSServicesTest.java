@@ -31,11 +31,15 @@ import org.decisiondeck.jmcda.structure.sorting.assignment.utils.AssignmentsUtil
 import org.decisiondeck.jmcda.xws.XWSExecutor;
 import org.decisiondeck.jmcda.xws.transformer.InputTransformer;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.google.common.io.ByteSource;
 import com.google.common.io.Resources;
 
 public class XWSServicesTest {
+	@SuppressWarnings("unused")
+	private static final Logger LOGGER = LoggerFactory.getLogger(XWSServicesTest.class);
 
 	private static class LegacySources extends MapBasedSource implements FunctionWithInputCheck<String, ByteSource> {
 		private final boolean m_checkInputs;
@@ -580,6 +584,7 @@ public class XWSServicesTest {
 		}
 		final Evaluations computed = worker.m_profiles;
 		final Evaluations expected = SixRealCars.getInstance().getPrometheeProfiles();
+		LOGGER.info("Criteria: {}.", computed.getColumns());
 		assertTrue(computed.approxEquals(expected, 5e-5d));
 	}
 
