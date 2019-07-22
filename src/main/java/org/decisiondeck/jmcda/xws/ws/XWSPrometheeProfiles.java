@@ -58,6 +58,7 @@ public class XWSPrometheeProfiles implements IXWS {
 				null, m_thresholds, null);
 		final ISortingPreferences restricted = ProblemViewFactory.getRestrictedPreferences(preferences, inAlts,
 				inCrits);
+		s_logger.info("Criteria: {}.", restricted.getCriteria());
 		m_profiles = new PrometheeProfiles().computeProfiles(restricted, restricted.getThresholds());
 		s_logger.info("Finished working.");
 	}
